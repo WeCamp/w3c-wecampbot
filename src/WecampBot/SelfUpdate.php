@@ -11,8 +11,14 @@ class SelfUpdate extends BaseCommand
     }
 
     protected function execute($message, $context) {
-        $this->send($this->getCurrentChannel(), null, "Updating my codez and restarting");
         $result = shell_exec("/usr/bin/git pull 2>&1");
+
+        if ($result === "Already up-to-date.\n") {
+            $this->send($this->getCurrentChannel(), null, 'My codez are already up to date');
+            return;
+        }
+
+        $this->send($this->getCurrentChannel(), null, "Updating my codez and restarting");
         $this->send($this->getCurrentChannel(), null, '```' . $result . '```');
 
         /**
