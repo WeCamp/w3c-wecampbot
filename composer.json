@@ -1,0 +1,19 @@
+{
+  "repositories": [
+    {"type": "composer", "url": "http://toran.weca.mp/repo/packagist/"},
+    {"packagist": false}
+  ],
+  "config": {
+    "secure-http":false
+  },
+  "autoload": {
+    "psr-4": {
+      "W3C\\": "src/WecampBot/"
+    }
+  },
+  "minimum-stability" : "dev",
+  "require": {
+    "jclg/php-slack-bot": "dev-master",
+    "fabpot/goutte": "^3.1"
+  }
+}
