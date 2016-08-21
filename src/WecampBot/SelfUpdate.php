@@ -15,8 +15,11 @@ class SelfUpdate extends BaseCommand
         $result = shell_exec("/usr/bin/git pull 2>&1");
         $this->send($this->getCurrentChannel(), null, '```' . $result . '```');
 
-        sleep(3);
-        exit;
+        /**
+         * Close the client and end the React loop
+         * This will cause the program to end, and supervisorctl to restart it
+         */
+        $this->getClient()->close();
     }
 }
 
