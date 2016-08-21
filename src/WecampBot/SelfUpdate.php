@@ -14,6 +14,9 @@ class SelfUpdate extends BaseCommand
         $this->send($this->getCurrentChannel(), null, "Updating my codez and restarting");
         $result = shell_exec("/usr/bin/git pull 2>&1");
         $this->send($this->getCurrentChannel(), null, '```' . $result . '```');
+
+        sleep(3);
+        exit;
     }
 }
 
