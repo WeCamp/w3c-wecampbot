@@ -8,6 +8,9 @@ class Schedule extends BaseCommand
 {
 
     private $schedule = [
+        'Tuesday' => [
+            ['from' => '23:33', 'to' => '00:00', 'activity' => 'Finish the bot schedule command'],
+        ],
         'Wednesday' => [
             ['from' => '08:30', 'to' => '10:00', 'activity' => 'Breakfast'],
             ['from' => '12:45', 'to' => '13:00', 'activity' => 'Interteam standup'],
