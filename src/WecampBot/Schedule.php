@@ -42,7 +42,7 @@ class Schedule extends BaseCommand
 
     protected function configure()
     {
-        $this->setName('!help');
+        $this->setName('!schedule');
     }
 
     protected function execute($message, $context)
