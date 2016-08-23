@@ -25,6 +25,7 @@ class SelfUpdate extends BaseCommand
          * Close the client and end the React loop
          * This will cause the program to end, and supervisorctl to restart it
          */
+        sleep(3);
         $this->getClient()->close();
     }
 }
