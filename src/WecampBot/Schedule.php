@@ -57,12 +57,12 @@ class Schedule extends BaseCommand
             return;
         }
 
-        $formattedSchedule = $day . "\n\n";
+        $formattedSchedule = ["*" . $day . "*\n"];
 
         foreach ($this->schedule[$day] as $item) {
-            $formattedSchedule .= sprintf('- %s till %s %s', $item['from'], $item['to'], $item['activity']);
+            $formattedSchedule[] = sprintf('- %s till %s %s', $item['from'], $item['to'], $item['activity']);
         }
 
-        $this->send($this->getCurrentChannel(), null, $formattedSchedule);
+        $this->send($this->getCurrentChannel(), null, implode("\n", $formattedSchedule));
     }
 }
