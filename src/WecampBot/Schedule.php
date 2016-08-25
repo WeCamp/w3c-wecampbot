@@ -37,7 +37,7 @@ class Schedule extends BaseCommand
             ['from' => '08:30', 'to' => '10:00', 'activity' => 'Breakfast'],
             ['from' => '10:00', 'to' => '12:00', 'activity' => 'Preparing the presentations and backing the bags'],
             ['from' => '12:00', 'to' => '13:00', 'activity' => 'Lunch'],
-            ['from' => '13:00', 'to' => '13:30', 'activity' => 'Project presentations'],
+            ['from' => '13:00', 'to' => '15:30', 'activity' => 'Project presentations'],
             ['from' => '15:30', 'to' => '16:00', 'activity' => 'Closing'],
             ['from' => '16:00', 'to' => 'the end', 'activity' => 'Departure'],
         ],
