@@ -39,7 +39,7 @@ class Beer extends BaseCommand
             return $this->beerOClock;
         }
 
-        if ($hour >= 18 && $hour < 0) {
+        if ($hour >= 18) {
             return $this->sixPMtoMidnight;
         }
 
