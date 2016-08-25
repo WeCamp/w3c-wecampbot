@@ -50,10 +50,10 @@ class Schedule extends BaseCommand
 
     protected function execute($message, $context)
     {
-
-        $day = date('l');
+        $day = $this->getRequestedDay($message);
         if (!isset($this->schedule[$day])) {
-            $this->send($this->getCurrentChannel(), null, 'There is no schedule for today');
+            $this->send($this->getCurrentChannel(), null, 'There is no schedule for the requested day');
+
             return;
         }
 
@@ -65,4 +65,18 @@ class Schedule extends BaseCommand
 
         $this->send($this->getCurrentChannel(), null, implode("\n", $formattedSchedule));
     }
+
+    private function getRequestedDay($message)
+    {
+        if (isset($message['text'])) {
+            $args = array_values(array_filter(explode(' ', $message['text'])));
+
+            if (isset($args[1])) {
+                return ucfirst(strtolower($args[1]));
+            }
+        }
+
+        return date('l');
+    }
+
 }

@@ -17,7 +17,7 @@ Known commands:
 
 - !commit (Suggests a commit message for your next commit)
 - !help (You are looking at it)
-- !schedule (Shows the schedule for the day)
+- !schedule [day] (Shows the schedule for the day, i.e. !schedule friday)
 - !stats [coach] (Updates the stats for the team with that coach)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
