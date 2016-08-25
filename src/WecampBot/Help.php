@@ -15,6 +15,7 @@ class Help extends BaseCommand
         $commands =  <<< EOC
 Known commands:
 
+- !beer (Is it beer-o-clock yet??)
 - !commit (Suggests a commit message for your next commit)
 - !help (You are looking at it)
 - !schedule [day] (Shows the schedule for the day, i.e. !schedule friday)
