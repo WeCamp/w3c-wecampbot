@@ -11,7 +11,7 @@ class WhatTheCommit extends BaseCommand
     }
 
     public function execute($message, $context) {
-        $commitMessage = readfile('http://whatthecommit.com/index.txt');
+        $commitMessage = file_get_contents('http://whatthecommit.com/index.txt');
         $this->send($this->getCurrentChannel(), null, ">" . $commitMessage);
     }
 
