@@ -19,6 +19,8 @@ Known commands:
 - !help (You are looking at it)
 - !schedule (Shows the schedule for the day)
 - !stats [coach] (Updates the stats for the team with that coach)
+
+Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
         $this->send($this->getCurrentChannel(), null, $commands);
     }
