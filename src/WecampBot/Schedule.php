@@ -28,8 +28,8 @@ class Schedule extends BaseCommand
         'Friday' => [
             ['from' => '08:30', 'to' => '10:00', 'activity' => 'Breakfast'],
             ['from' => '10:00', 'to' => '13:00', 'activity' => 'Fronteers Frontend Rescue Team'],
-            ['from' => '12:45', 'to' => '13:00', 'activity' => 'Interteam standup'],
-            ['from' => '13:00', 'to' => '14:00', 'activity' => 'Lunch'],
+            ['from' => '11:45', 'to' => '12:00', 'activity' => 'Interteam standup'],
+            ['from' => '12:00', 'to' => '13:00', 'activity' => 'Lunch'],
             ['from' => '13:00', 'to' => '16:00', 'activity' => 'Pragmatist Survival Game'],
             ['from' => '19:00', 'to' => '20:00', 'activity' => 'Dinner'],
         ],
