@@ -50,8 +50,11 @@ class Schedule extends BaseCommand
 
     protected function execute($message, $context)
     {
-        $firstArgument = $this->extractFirstArgument($message);
-        $day = date('l', strtotime($firstArgument));
+        if ($firstArgument = $this->extractFirstArgument($message)) {
+            $day = date('l', strtotime($firstArgument));
+        } else {
+            $day = date('l');
+        }
 
         $formattedSchedule = ["*" . $day . "*\n"];
 
@@ -69,6 +72,7 @@ class Schedule extends BaseCommand
         if (isset($message['text'])) {
             $args = array_values(array_filter(explode(' ', $message['text'])));
         }
+
         return isset($args[1]) ? $args[1] : '';
     }
 
