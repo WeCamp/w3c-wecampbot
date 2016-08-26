@@ -20,6 +20,7 @@ Known commands:
 - !help (You are looking at it)
 - !schedule [day] (Shows the schedule for the day, i.e. !schedule friday)
 - !stats [coach] (Updates the stats for the team with that coach)
+- !yoda [something you want to say] (Yoda-fies whatever you wanted to say)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
