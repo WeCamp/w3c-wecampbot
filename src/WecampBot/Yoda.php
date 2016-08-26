@@ -13,7 +13,11 @@ class Yoda extends BaseCommand
 
     protected function execute($message, $context)
     {
-        $message = trim(str_replace('!yoda', '', $message));
+        $message['text'] = trim(str_replace('!yoda', '', $message['text']));
+
+        if (empty($message['text'])) {
+            $this->send($this->getCurrentChannel(), null, 'Wanted to say something, you want?');
+        }
 
         $client = new Client();
         $headers = [
@@ -21,7 +25,7 @@ class Yoda extends BaseCommand
             'Accept' => 'text/plain'
         ];
 
-        $result = $client->get('https://yoda.p.mashape.com/yoda?sentence=' . urlencode($message), ['headers' => $headers]);
+        $result = $client->get('https://yoda.p.mashape.com/yoda?sentence=' . urlencode($message['text']), ['headers' => $headers]);
 
         $this->send($this->getCurrentChannel(), null, $result->getBody()->getContents());
     }
