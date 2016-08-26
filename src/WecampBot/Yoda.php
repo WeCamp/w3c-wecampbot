@@ -21,8 +21,8 @@ class Yoda extends BaseCommand
             'Accept' => 'text/plain'
         ];
 
-        $result = $client->get('https://yoda.p.mashape.com/yoda?sentence=' . $message, $headers);
+        $result = $client->get('https://yoda.p.mashape.com/yoda?sentence=' . $message, ['headers' => $headers]);
 
-        $this->send($this->getCurrentChannel(), null, $result->getBody());
+        $this->send($this->getCurrentChannel(), null, $result->getBody()->getContents());
     }
 }
