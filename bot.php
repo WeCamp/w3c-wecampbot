@@ -4,9 +4,8 @@ require 'vendor/autoload.php';
 use PhpSlackBot\Bot;
 use W3C\Help;
 use W3C\SelfUpdate;
-use W3C\Stats;
+use W3C\Schedule;
 use W3C\WhatTheCommit;
-use W3C\Yoda;
 
 $bot = new Bot();
 $bot->setToken(getenv('SLACK_TOKEN'));
