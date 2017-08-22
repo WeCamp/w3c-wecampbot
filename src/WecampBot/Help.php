@@ -17,6 +17,7 @@ Known commands:
 
 - !help (You are looking at it)
 - !commit (Suggests a commit message for your next commit)
+- !schedule [day] (Shows the schedule for the day, i.e. !schedule friday)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;

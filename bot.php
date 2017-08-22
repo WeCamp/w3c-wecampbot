@@ -15,6 +15,7 @@ $bot->setToken(getenv('SLACK_TOKEN'));
  * This is where the magic happens
  */
 $bot->loadCommand(new Help());
+$bot->loadCommand(new Schedule());
 $bot->loadCommand(new SelfUpdate());
 $bot->loadCommand(new WhatTheCommit());
 $bot->run();
