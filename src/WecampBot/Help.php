@@ -17,7 +17,6 @@ Known commands:
 
 - !help (You are looking at it)
 - !commit (Suggests a commit message for your next commit)
-- !yoda [something you want to say] (Yoda-fies whatever you wanted to say)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
