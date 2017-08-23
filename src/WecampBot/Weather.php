@@ -62,7 +62,8 @@ class Weather extends BaseCommand
         $this->sendToChannel($theWeather);
     }
 
-    protected function decideWhatTypeOfWeatherItIs(OpenWeatherMap\Forecast $weather) {
+    protected function decideWhatTypeOfWeatherItIs(OpenWeatherMap\Forecast $weather)
+    {
         $precipitation = $weather->precipitation->getValue();
         $clouds = $weather->clouds->getValue();
         $temperature = $weather->temperature->getValue();

@@ -9,12 +9,13 @@ class SelfUpdate extends BaseCommand
     private $updateCodebaseCommand = "/usr/bin/git pull 2>&1";
     private $updateDependenciesCommand = "composer install --no-interaction --no-scripts 2>&1";
 
-    protected function configure() {
+    protected function configure()
+    {
         $this->setName('!selfupdate');
     }
 
-    protected function execute($message, $context) {
-
+    protected function execute($message, $context)
+    {
         $this->tellThem('Updating my codez');
         $this->tellThem('```' . shell_exec($this->updateCodebaseCommand) . '```');
 
@@ -28,6 +29,4 @@ class SelfUpdate extends BaseCommand
     {
         $this->send($this->getCurrentChannel(), null, $something);
     }
-
 }
-

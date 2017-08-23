@@ -6,7 +6,6 @@ use PhpSlackBot\Command\BaseCommand;
 
 class Restart extends BaseCommand
 {
-
     protected function configure()
     {
         $this->setName('!restart');
@@ -22,6 +21,4 @@ class Restart extends BaseCommand
         sleep(1);
         $this->getClient()->close();
     }
-
 }
-
