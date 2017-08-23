@@ -6,7 +6,8 @@ use \PhpSlackBot\Command\BaseCommand;
 
 class Help extends BaseCommand
 {
-    protected function configure() {
+    protected function configure()
+    {
         $this->setName('!help');
     }
 

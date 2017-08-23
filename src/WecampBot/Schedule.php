@@ -6,7 +6,6 @@ use PhpSlackBot\Command\BaseCommand;
 
 class Schedule extends BaseCommand
 {
-
     private $schedule = [
         'Tuesday' => [
             ['from' => '23:33', 'to' => '00:00', 'activity' => 'Finish the bot schedule command'],
@@ -76,5 +75,4 @@ class Schedule extends BaseCommand
 
         return isset($args[1]) ? $args[1] : '';
     }
-
 }

@@ -15,6 +15,7 @@
   "require": {
     "jclg/php-slack-bot": "dev-master",
     "guzzlehttp/guzzle": "^6.2",
-    "cmfcmf/openweathermap-php-api": "dev-master"
+    "cmfcmf/openweathermap-php-api": "dev-master",
+    "friendsofphp/php-cs-fixer": "^2.5@dev"
   }
 }
