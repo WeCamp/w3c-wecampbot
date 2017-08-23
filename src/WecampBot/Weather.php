@@ -12,9 +12,16 @@ class Weather extends BaseCommand
 
     private $apiKey;
 
+    /**
+     * @var OpenWeatherMap
+     */
+    private $openWeatherMap;
+
     public function __construct()
     {
         $this->apiKey = getenv('OPENWEATHERMAP_APIKEY');
+
+        $this->openWeatherMap = new OpenWeatherMap($this->apiKey);
     }
 
     protected function configure()
@@ -24,13 +31,15 @@ class Weather extends BaseCommand
 
     protected function execute($message, $context)
     {
-        $openWeatherMap = new OpenWeatherMap($this->apiKey);
+        $argument = $this->extractFirstArgument($message);
 
-        $forecast = $openWeatherMap->getWeatherForecast('Biddinghuizen', $this->units, $this->lang);
+        if ('debug' === $argument) {
+            return $this->handleDebug();
+        }
 
         $theWeather = '';
 
-        $weatherForADay = $forecast->current();
+        $weatherForADay = $this->getForecast();
 
         $from = $weatherForADay->time->from;
         $to = $weatherForADay->time->to;
@@ -48,7 +57,7 @@ class Weather extends BaseCommand
         $theWeather .= "The humidity will be " . $weatherForADay->humidity . "\n";
         $theWeather .= $this->decideWhatTypeOfWeatherItIs($weatherForADay);
 
-        $this->send($this->getCurrentChannel(), null, $theWeather);
+        $this->sendToChannel($theWeather);
     }
 
     protected function decideWhatTypeOfWeatherItIs(OpenWeatherMap\Forecast $weather) {
@@ -67,5 +76,35 @@ class Weather extends BaseCommand
         if ($temperature > 25) {
             return "It's going to be very hot, make sure to stay hydrated\n";
         }
+    }
+
+    private function handleDebug()
+    {
+        $message = print_r($this->getForecast());
+
+        $this->sendToChannel($message);
+    }
+
+    private function getForecast()
+    {
+        $weatherForecast = $this->openWeatherMap->getWeatherForecast('Biddinghuizen', $this->units, $this->lang);
+
+        return $weatherForecast->current();
+    }
+
+    private function extractFirstArgument($message)
+    {
+        $args = [];
+
+        if (isset($message['text'])) {
+            $args = array_values(array_filter(explode(' ', $message['text'])));
+        }
+
+        return isset($args[1]) ? $args[1] : '';
+    }
+
+    private function sendToChannel($message)
+    {
+        $this->send($this->getCurrentChannel(), null, $message);
     }
 }
