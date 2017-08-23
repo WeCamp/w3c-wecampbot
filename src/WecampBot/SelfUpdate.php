@@ -21,7 +21,7 @@ class SelfUpdate extends BaseCommand
         $this->tellThem('Updating my dependencies');
         $this->tellThem('```' . shell_exec($this->updateDependenciesCommand) . '```');
 
-        $this->tellThem('!restart');
+        $this->tellThem('Remember to restart...');
     }
 
     private function tellThem($something)
