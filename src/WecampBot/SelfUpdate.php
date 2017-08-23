@@ -7,7 +7,7 @@ use \PhpSlackBot\Command\BaseCommand;
 class SelfUpdate extends BaseCommand
 {
     private $updateCodebaseCommand = "/usr/bin/git pull 2>&1";
-    private $updateDependenciesCommand = "composer install --no-interaction --no-scripts";
+    private $updateDependenciesCommand = "composer install --no-interaction --no-scripts 2>&1";
 
     protected function configure() {
         $this->setName('!selfupdate');
