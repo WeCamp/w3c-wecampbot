@@ -41,9 +41,11 @@ class Weather extends BaseCommand
 
         $weatherForADay = $this->getForecast();
 
-        $from = $weatherForADay->time->from;
-        $to = $weatherForADay->time->to;
-        $day = $weatherForADay->time->day;
+        $utc = new \DateTimeZone('UTC');
+
+        $from = new \DateTime($weatherForADay->time->from->format(DATE_ATOM), $utc);
+        $to = new \DateTime($weatherForADay->time->to->format(DATE_ATOM), $utc);
+        $day = new \DateTime($weatherForADay->time->day->format(DATE_ATOM), $utc);
 
         $timezone = new \DateTimeZone('Europe/Amsterdam');
         $from->setTimezone($timezone);
