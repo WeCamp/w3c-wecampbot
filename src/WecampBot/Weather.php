@@ -26,15 +26,24 @@ class Weather extends BaseCommand
     {
         $openWeatherMap = new OpenWeatherMap($this->apiKey);
 
-        $forecast = $openWeatherMap->getWeatherForecast('De Kluut', $this->units, $this->lang);
+        $forecast = $openWeatherMap->getWeatherForecast('Biddinghuizen', $this->units, $this->lang);
 
         $theWeather = '';
 
         $weatherForADay = $forecast->current();
 
-        $theWeather .= "Weather forecast at " . $weatherForADay->time->day->format('d.m.Y') . " from " . $weatherForADay->time->from->format('H:i') . " to " . $weatherForADay->time->to->format('H:i')."\n";
+        $from = $weatherForADay->time->from;
+        $to = $weatherForADay->time->to;
+        $day = $weatherForADay->time->day;
+
+        $timezone = new \DateTimeZone('Europe/Amsterdam');
+        $from->setTimezone($timezone);
+        $to->setTimezone($timezone);
+        $day->setTimezone($timezone);
+
+        $theWeather .= "Weather forecast at " . $day->format('d.m.Y') . " from " . $from->format('H:i') . " to " . $to->format('H:i')."\n";
         $theWeather .= "It will be " . str_replace('&deg;', '°', $weatherForADay->temperature) . "\n";
-        $theWeather .= "There will be a wind " . $weatherForADay->wind->direction . " degrees with a speed of " . $weatherForADay->wind->speed . "m/s\n";
+        $theWeather .= "There will be a wind " . $weatherForADay->wind->direction . " degrees with a speed of " . $weatherForADay->wind->speed . "\n";
         $theWeather .= "We'll have " . $weatherForADay->precipitation . " mm of rain\n";
         $theWeather .= "The humidity will be " . $weatherForADay->humidity . "\n";
         $theWeather .= $this->decideWhatTypeOfWeatherItIs($weatherForADay);
