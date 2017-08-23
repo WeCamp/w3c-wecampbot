@@ -19,12 +19,14 @@ class Schedule extends BaseCommand
             ['from' => '20:00', 'to' => 'late', 'activity' => 'Future500 Gamenight'],
         ],
         'Thursday' => [
+            ['from' => '08:00', 'to' => '08:30', 'activity' => 'Guided Mindfulness Meditation @ Main Tipi'],
             ['from' => '08:30', 'to' => '10:00', 'activity' => 'Breakfast'],
             ['from' => '12:45', 'to' => '13:00', 'activity' => 'Interteam standup'],
             ['from' => '13:00', 'to' => '14:00', 'activity' => 'Lunch'],
             ['from' => '19:00', 'to' => '20:00', 'activity' => 'Dinner'],
         ],
         'Friday' => [
+            ['from' => '08:00', 'to' => '08:30', 'activity' => 'Guided Mindfulness Meditation @ Main Tipi'],
             ['from' => '08:30', 'to' => '10:00', 'activity' => 'Breakfast'],
             ['from' => '11:45', 'to' => '12:00', 'activity' => 'Interteam standup'],
             ['from' => '12:00', 'to' => '13:00', 'activity' => 'Lunch'],
@@ -32,6 +34,7 @@ class Schedule extends BaseCommand
             ['from' => '19:00', 'to' => '20:00', 'activity' => 'Dinner'],
         ],
         'Saturday' => [
+            ['from' => '08:00', 'to' => '08:30', 'activity' => 'Guided Mindfulness Meditation @ Main Tipi'],
             ['from' => '08:30', 'to' => '10:00', 'activity' => 'Breakfast'],
             ['from' => '09:30', 'to' => '12:00', 'activity' => 'Preparing the presentations and backing the bags'],
             ['from' => '12:00', 'to' => '13:00', 'activity' => 'Lunch'],
