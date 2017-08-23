@@ -80,7 +80,7 @@ class Weather extends BaseCommand
 
     private function handleDebug()
     {
-        $message = print_r($this->getForecast());
+        $message = print_r($this->getForecast(), true);
 
         $this->sendToChannel($message);
     }
