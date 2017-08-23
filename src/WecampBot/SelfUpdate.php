@@ -21,14 +21,7 @@ class SelfUpdate extends BaseCommand
         $this->tellThem('Updating my dependencies');
         $this->tellThem('```' . shell_exec($this->updateDependenciesCommand) . '```');
 
-        $this->tellThem('Restarting in 5...');
-
-        /**
-         * Close the client and end the React loop
-         * This will cause the program to end, and supervisorctl to restart it
-         */
-        sleep(5);
-        $this->getClient()->close();
+        $this->tellThem('!restart');
     }
 
     private function tellThem($something)
