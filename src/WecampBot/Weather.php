@@ -19,7 +19,7 @@ class Weather extends BaseCommand
 
     protected function configure()
     {
-        $this->setName('!schedule');
+        $this->setName('!weather');
     }
 
     protected function execute($message, $context)
