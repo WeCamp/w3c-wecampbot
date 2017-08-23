@@ -39,13 +39,15 @@ class Weather extends BaseCommand
         $theWeather .= "The humidity will be " . $weatherForADay->humidity . "\n";
         $theWeather .= $this->decideWhatTypeOfWeatherItIs($weatherForADay);
 
-        $this->send($this->getCurrentChannel(), null, implode("\n", $theWeather));
+        $this->send($this->getCurrentChannel(), null, $theWeather);
     }
 
     protected function decideWhatTypeOfWeatherItIs(OpenWeatherMap\Forecast $weather) {
         $precipitation = $weather->precipitation->getValue();
+        $clouds = $weather->clouds->getValue();
+        $temperature = $weather->temperature->getValue();
 
-        if ($precipitation == 0 && $weather->clouds < 25) {
+        if ($precipitation == 0 && $clouds < 25) {
             return "It's going to be one hell of a sunny day\n";
         }
 
@@ -53,7 +55,7 @@ class Weather extends BaseCommand
             return "We might have some rain, but we should be fine\n";
         }
 
-        if ($weather->temperature > 25) {
+        if ($temperature > 25) {
             return "It's going to be very hot, make sure to stay hydrated\n";
         }
     }
