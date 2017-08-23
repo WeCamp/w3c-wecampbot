@@ -34,7 +34,7 @@ class Weather extends BaseCommand
         $argument = $this->extractFirstArgument($message);
 
         if ('debug' === $argument) {
-            return $this->handleDebug();
+            $this->handleDebug();
         }
 
         $theWeather = '';
