@@ -10,6 +10,8 @@ class Weather extends BaseCommand
     private $lang = 'en';
     private $units = 'metric';
 
+    private $apiKey;
+
     public function __construct()
     {
         $this->apiKey = getenv('OPENWEATHERMAP_APIKEY');
