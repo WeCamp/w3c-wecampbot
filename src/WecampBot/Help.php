@@ -20,6 +20,7 @@ Known commands:
 - !commit (Suggests a commit message for your next commit)
 - !schedule [day] (Shows the schedule for the day, i.e. !schedule friday)
 - !weather (Show the weather forecast)
+- !cat (Show a cat. Like duh. Seriously, what did you expect. Why are you still reading?)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
