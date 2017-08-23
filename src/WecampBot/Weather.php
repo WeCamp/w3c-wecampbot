@@ -14,7 +14,7 @@ class Weather extends BaseCommand
 
     public function __construct()
     {
-        $this->apiKey = getenv('openweathermap_apikey');
+        $this->apiKey = getenv('OPENWEATHERMAP_APIKEY');
     }
 
     protected function configure()
@@ -30,24 +30,26 @@ class Weather extends BaseCommand
 
         $theWeather = '';
 
-        $weatherForADay = current($forecast);
+        $weatherForADay = $forecast->current();
 
         $theWeather .= "Weather forecast at " . $weatherForADay->time->day->format('d.m.Y') . " from " . $weatherForADay->time->from->format('H:i') . " to " . $weatherForADay->time->to->format('H:i')."\n";
-        $theWeather .= "It will be " . $weatherForADay->temperature . " degrees Celsius\n";
+        $theWeather .= "It will be " . str_replace('&deg;', '°', $weatherForADay->temperature) . "\n";
         $theWeather .= "There will be a wind " . $weatherForADay->wind->direction . " degrees with a speed of " . $weatherForADay->wind->speed . "m/s\n";
-        $theWeather .= "We'll have " . $weatherForADay->precipitation . "mm of rain\n";
-        $theWeather .= "The humidity will be " . $weatherForADay->humidity . "%\n";
+        $theWeather .= "We'll have " . $weatherForADay->precipitation . " mm of rain\n";
+        $theWeather .= "The humidity will be " . $weatherForADay->humidity . "\n";
         $theWeather .= $this->decideWhatTypeOfWeatherItIs($weatherForADay);
 
         $this->send($this->getCurrentChannel(), null, implode("\n", $theWeather));
     }
 
     protected function decideWhatTypeOfWeatherItIs(OpenWeatherMap\Forecast $weather) {
-        if ($weather->precipitation == 0 && $weather->clouds < 25) {
+        $precipitation = $weather->precipitation->getValue();
+
+        if ($precipitation == 0 && $weather->clouds < 25) {
             return "It's going to be one hell of a sunny day\n";
         }
 
-        if ($weather->precipitation > 0 && $weather->precipitation < 5) {
+        if ($precipitation > 0 && $precipitation < 5) {
             return "We might have some rain, but we should be fine\n";
         }
 
