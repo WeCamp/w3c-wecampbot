@@ -30,7 +30,9 @@ class Schedule extends BaseCommand
             ['from' => '11:45', 'to' => '12:00', 'activity' => 'Interteam standup'],
             ['from' => '12:00', 'to' => '13:00', 'activity' => 'Lunch'],
             ['from' => '13:00', 'to' => '16:00', 'activity' => 'Pragmatist Survival Game'],
+            ['from' => '19:00', 'to' => '19:00', 'activity' => 'Hand in Coolblue Challenge entry @ Crew Corner'],
             ['from' => '19:00', 'to' => '20:00', 'activity' => 'Dinner'],
+            ['from' => '20:00', 'to' => '20:00', 'activity' => 'Announcement of winner of the Coolblue Challenge @ Catering tent'],
         ],
         'Saturday' => [
             ['from' => '08:00', 'to' => '08:30', 'activity' => 'Guided Mindfulness Meditation @ Main Tipi'],
