@@ -23,6 +23,7 @@ Known commands:
 - !cat (Show a cat. Like duh. Seriously, what did you expect. Why are you still reading?)
 - !dog (Show a dog. Far inferior to !cat. Do not use. Like ever)
 - !ramon (If you really need him)
+- !quote (Show an inspirational quote)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
