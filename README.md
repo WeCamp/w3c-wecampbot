@@ -11,4 +11,4 @@ Take a look at src/WeCampBot/WhatTheCommit.php as an example.
 3. Add your command to the Help command: src/WeCampBot/Help.php
 
 Make a PR...
-If your PR is accepted, I will learn to do somehting new automatically!
+If your PR is accepted, I will learn to do something new automatically!
