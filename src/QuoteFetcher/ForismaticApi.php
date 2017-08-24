@@ -20,6 +20,6 @@ final class ForismaticApi implements QuoteFetcher
             throw CouldNotFetchQuote::becauseReasons($exception->getMessage());
         }
 
-        return Quote::fromForismaticApi($response);
+        return new Quote($response['quoteText'], $response['quoteAuthor']);
     }
 }

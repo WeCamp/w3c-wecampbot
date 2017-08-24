@@ -10,7 +10,7 @@ final class Quote
     private $quote;
     private $author;
 
-    private function __construct(string $quote, string $author)
+    public function __construct(string $quote, string $author)
     {
         $this->quote = $quote;
         $this->author = $author;
@@ -19,10 +19,5 @@ final class Quote
     public function __toString()
     {
         return "{$this->quote} - {$this->author}";
-    }
-
-    public static function fromForismaticApi(array $response)
-    {
-        return new self($response['quoteText'], $response['quoteAuthor']);
     }
 }
