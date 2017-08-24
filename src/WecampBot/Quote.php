@@ -5,9 +5,10 @@ declare(strict_types=1);
 
 namespace W3C;
 
+use PhpSlackBot\Command\BaseCommand;
 use QuoteFetcher\QuoteFetcher;
 
-final class Quote
+final class Quote extends BaseCommand
 {
     /**
      * @var QuoteFetcher
