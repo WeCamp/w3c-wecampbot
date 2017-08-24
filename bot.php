@@ -1,8 +1,11 @@
 <?php
 
 require 'vendor/autoload.php';
+
+use DogUrlFetcher\FileGetContentsDogUrlFetcher;
 use PhpSlackBot\Bot;
 use W3C\Cat;
+use W3C\Dog;
 use W3C\Help;
 use W3C\Restart;
 use W3C\SelfUpdate;
@@ -23,4 +26,5 @@ $bot->loadCommand(new SelfUpdate());
 $bot->loadCommand(new WhatTheCommit());
 $bot->loadCommand(new Weather());
 $bot->loadCommand(new Cat());
+$bot->loadCommand(new Dog(new FileGetContentsDogUrlFetcher()));
 $bot->run();

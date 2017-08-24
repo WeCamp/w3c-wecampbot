@@ -21,6 +21,7 @@ Known commands:
 - !schedule [day] (Shows the schedule for the day, i.e. !schedule friday)
 - !weather (Show the weather forecast)
 - !cat (Show a cat. Like duh. Seriously, what did you expect. Why are you still reading?)
+- !dog (Show a dog. Far inferior to !cat. Do not use. Like ever)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
