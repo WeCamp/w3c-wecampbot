@@ -15,6 +15,6 @@ final class Jeremy extends BaseCommand
 
     protected function execute($message, $context)
     {
-        $this->send($this->getCurrentChannel(), null, 'https://www.youtube.com/watch?v=NKR2n-G-wdM');
+        $this->send($this->getCurrentChannel(), null, 'https://open.spotify.com/track/5FMXrphygZ4z3gVDHGWxgl');
     }
 }
