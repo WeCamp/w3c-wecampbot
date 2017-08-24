@@ -12,7 +12,8 @@
   "autoload": {
     "psr-4": {
       "W3C\\": "src/WecampBot/",
-      "DogUrlFetcher\\": "src/DogUrlFetcher/"
+      "DogUrlFetcher\\": "src/DogUrlFetcher/",
+      "QuoteFetcher\\": "src/QuoteFetcher/"
     }
   },
   "require": {

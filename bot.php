@@ -4,10 +4,12 @@ require 'vendor/autoload.php';
 
 use DogUrlFetcher\FileGetContentsDogUrlFetcher;
 use PhpSlackBot\Bot;
+use QuoteFetcher\ForismaticApi;
 use W3C\Cat;
 use W3C\Dog;
 use W3C\Help;
 use W3C\Jeremy;
+use W3C\Quote;
 use W3C\Ramon;
 use W3C\Restart;
 use W3C\SelfUpdate;
@@ -31,4 +33,5 @@ $bot->loadCommand(new Cat());
 $bot->loadCommand(new Dog(new FileGetContentsDogUrlFetcher()));
 $bot->loadCommand(new Ramon());
 $bot->loadCommand(new Jeremy());
+$bot->loadCommand(new Quote(new ForismaticApi()));
 $bot->run();

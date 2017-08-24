@@ -24,6 +24,7 @@ Known commands:
 - !dog (Show a dog. Far inferior to !cat. Do not use. Like ever)
 - !ramon (If you really need him)
 - !jeremy (He really loves having Copacabana stuck in his head, tease with ease)
+- !quote (Show an inspirational quote)
 
 Add more? Go ahead! https://github.com/WeCamp/w3c-wecampbot
 EOC;
