@@ -6,15 +6,15 @@ namespace W3C;
 
 use PhpSlackBot\Command\BaseCommand;
 
-final class Ramon extends BaseCommand
+final class Jeremy extends BaseCommand
 {
     protected function configure()
     {
-        $this->setName('!ramon');
+        $this->setName('!jeremy');
     }
 
     protected function execute($message, $context)
     {
-        $this->send($this->getCurrentChannel(), null, '<@f_u_e_n_t_e> :dancer: :clap: :clap:');
+        $this->send($this->getCurrentChannel(), null, 'https://open.spotify.com/track/5FMXrphygZ4z3gVDHGWxgl');
     }
 }
