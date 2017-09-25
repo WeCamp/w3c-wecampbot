@@ -1,0 +1,29 @@
+stages:
+    - build
+    - deploy
+
+build:
+    stage: build
+    image: "docker:git"
+    services: [ "docker:dind" ]
+    variables: { DOCKER_DRIVER: overlay }
+
+    script:
+        # build container
+        - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+        - docker build -t registry.gitlab.com/wecamp/w3c-wecampbot .
+        - docker push registry.gitlab.com/wecamp/w3c-wecampbot
+
+    only:
+        - master
+
+deploy:
+    environment: wecamp
+    stage: deploy
+    image: cdrx/rancher-gitlab-deploy
+    variables: { GIT_STRATEGY: none }
+    script:
+        # deploy container to registry
+        - upgrade --environment="ingewikkeld" --stack="wecamp" --service="slackbot" --finish-upgrade
+    only:
+        - master
