@@ -4,7 +4,7 @@ ADD . /var/bot
 
 WORKDIR /var/bot
 
-RUN apt-get update && apt-get install -y git zlib1g-dev supervisord
+RUN apt-get update && apt-get install -y git zlib1g-dev supervisor
 RUN docker-php-ext-install zip
 
 COPY docker/supervisord/wecamp_bot.conf /etc/supervisord/conf.d/wecamp_bot.conf
